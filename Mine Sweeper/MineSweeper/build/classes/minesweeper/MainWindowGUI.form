@@ -27,6 +27,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Debug Mode"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="debugModeActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -42,6 +45,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Change Color"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colorChangeActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -117,23 +123,26 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="gamesWonLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Games Won: "/>
+        <Property name="text" type="java.lang.String" value="Games Won: 0 "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="gamesLostLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Games Lost: "/>
+        <Property name="text" type="java.lang.String" value="Games Lost: 0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="gamesPlayedLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Total Games Played: "/>
+        <Property name="text" type="java.lang.String" value="Total Games Played: 0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="startButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="New Game"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="statusLabel">
       <Properties>
