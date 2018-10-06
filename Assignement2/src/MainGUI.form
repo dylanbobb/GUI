@@ -246,9 +246,6 @@
     <Component class="javax.swing.JCheckBox" name="edgeBox">
     </Component>
     <Component class="javax.swing.JCheckBox" name="greyScaleBox">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greyScaleBoxActionPerformed"/>
-      </Events>
     </Component>
     <Container class="ImagePanel" name="inputImage">
 
@@ -293,9 +290,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="sharpenBox">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sharpenBoxActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="resetGammaBtn">
       <Properties>

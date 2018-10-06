@@ -98,14 +98,6 @@ public class MainGUI extends javax.swing.JFrame {
             }
         });
 
-        greyScaleBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                greyScaleBoxActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout inputImageLayout = new javax.swing.GroupLayout(inputImage);
         inputImage.setLayout(inputImageLayout);
         inputImageLayout.setHorizontalGroup(
@@ -133,14 +125,6 @@ public class MainGUI extends javax.swing.JFrame {
         gammaSlider.setValue(100);
 
         sharpenLbl.setText("Sharpen Filter");
-
-        sharpenBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                sharpenBoxActionPerformed(evt);
-            }
-        });
 
         resetGammaBtn.setText("Reset Gamma Correction");
         resetGammaBtn.addActionListener(new java.awt.event.ActionListener()
@@ -308,14 +292,6 @@ public class MainGUI extends javax.swing.JFrame {
     private void applyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyBtnActionPerformed
         applyImage();
     }//GEN-LAST:event_applyBtnActionPerformed
-
-    private void sharpenBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sharpenBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sharpenBoxActionPerformed
-
-    private void greyScaleBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greyScaleBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_greyScaleBoxActionPerformed
 
     private void resetGammaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetGammaBtnActionPerformed
         gammaSlider.setValue(100);
