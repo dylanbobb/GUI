@@ -29,7 +29,8 @@ public class MainGUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         openBtn = new javax.swing.JButton();
         saveBtn = new javax.swing.JButton();
@@ -59,15 +60,19 @@ public class MainGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         openBtn.setText("Open");
-        openBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        openBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 openBtnActionPerformed(evt);
             }
         });
 
         saveBtn.setText("Save");
-        saveBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        saveBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 saveBtnActionPerformed(evt);
             }
         });
@@ -85,14 +90,18 @@ public class MainGUI extends javax.swing.JFrame {
         greyScaleLbl.setText("Convert to Grey Scales");
 
         applyBtn.setText("Apply");
-        applyBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        applyBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 applyBtnActionPerformed(evt);
             }
         });
 
-        greyScaleBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        greyScaleBox.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 greyScaleBoxActionPerformed(evt);
             }
         });
@@ -125,40 +134,53 @@ public class MainGUI extends javax.swing.JFrame {
 
         sharpenLbl.setText("Sharpen Filter");
 
-        sharpenBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        sharpenBox.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 sharpenBoxActionPerformed(evt);
             }
         });
 
         resetGammaBtn.setText("Reset Gamma Correction");
-        resetGammaBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        resetGammaBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 resetGammaBtnActionPerformed(evt);
             }
         });
 
         fileMenu.setText("File");
 
+        openItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         openItem.setText("Open Image");
-        openItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        openItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 openItemActionPerformed(evt);
             }
         });
         fileMenu.add(openItem);
 
+        saveItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         saveItem.setText("Save Image");
-        saveItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        saveItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 saveItemActionPerformed(evt);
             }
         });
         fileMenu.add(saveItem);
 
+        quitItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         quitItem.setText("Quit");
-        quitItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        quitItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 quitItemActionPerformed(evt);
             }
         });
@@ -363,18 +385,23 @@ public class MainGUI extends javax.swing.JFrame {
         
         if(returnVal == JFileChooser.APPROVE_OPTION) {
             File inputImageFile = fc.getSelectedFile();
-            try {
-                inputImage.setImage(ImageIO.read(inputImageFile));
-                outputImage.setImage(ImageIO.read(inputImageFile));
-                wasEdited = false;
+            String path = inputImageFile.getAbsolutePath();
+            if(!(path.endsWith(".png") || path.endsWith("jpg") || path.endsWith(".bmp"))) {
+                processLbl.setText("Error: You must select an image");
             }
-            catch (IOException e) {}
-            processLbl.setText("Image Sucessfully Loaded!");
+            else {
+                try {
+                    inputImage.setImage(ImageIO.read(inputImageFile));
+                    outputImage.setImage(ImageIO.read(inputImageFile));
+                    processLbl.setText("Image Sucessfully Loaded!");
+                }
+                catch (IOException e) {processLbl.setText("Error Loading Image!");}
+            }
         }
         else {
             processLbl.setText("Image Loading Cancelled");
         }
-        
+        wasEdited = false;
     }
     
     private void saveImage() {
