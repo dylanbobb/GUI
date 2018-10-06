@@ -5,14 +5,11 @@ import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 
-/*
-TO DO LIST:
-- Gamma correction filter debugging
-- Mek too quik
-*/
+// Programmed by: Dylan Bobb & Karim Botros
 
 public class MainGUI extends javax.swing.JFrame {
-
+    
+    // This boolean is used to prevent a user from saving an unedited image and also to update the info label.
     private boolean wasEdited = false;
     
     /**
@@ -294,6 +291,7 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_applyBtnActionPerformed
 
     private void resetGammaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetGammaBtnActionPerformed
+        // Resets the gamma slider to the default position.
         gammaSlider.setValue(100);
     }//GEN-LAST:event_resetGammaBtnActionPerformed
 
@@ -333,9 +331,8 @@ public class MainGUI extends javax.swing.JFrame {
     }
     
     
-    
+    // This method opens a file chooser and sets both image panels to the selected image.
     private void openImage() {
-        
         final JFileChooser fc = new JFileChooser();
         
         fc.setCurrentDirectory(new File("./images"));
@@ -380,6 +377,7 @@ public class MainGUI extends javax.swing.JFrame {
         wasEdited = false;
     }
     
+    // This method opens a file chooser and allows the user to save the image currently located in the outputImage panel.
     private void saveImage() {
         
         if (wasEdited) {
@@ -425,6 +423,7 @@ public class MainGUI extends javax.swing.JFrame {
         
         BufferedImage output = inputImage.getBufferedImage();
 
+        // At first, the image is not modified, but if the user did select a filter, this will change before it is visible.
         processLbl.setText("Image is not Modified!");
         wasEdited = false;
         

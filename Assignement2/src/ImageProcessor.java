@@ -42,6 +42,7 @@ public class ImageProcessor {
     
     public static BufferedImage applyBoxBlur(BufferedImage img) {
         final float[][] boxKernel = new float[3][3];
+        // Filling the 3x3 matrix
         float value = 1.0f/(3*3);
         for (int i=0; i<3; i++) {
             for (int j=0; j<3; j++) {
@@ -52,6 +53,7 @@ public class ImageProcessor {
     }
     
     public static BufferedImage applyEdgeFilter(BufferedImage img) {
+        // Creating a fillint a 3x3 matrix that represents an edge filter
         final float[][] edgeKernel = new float[3][3];
         for (int i=0; i<3; i++) {
             for (int j=0; j<3; j++) {
@@ -68,6 +70,7 @@ public class ImageProcessor {
     }
     
     public static BufferedImage applyGammaCorrection(BufferedImage img, float value) {
+        // We need to divide the slider value by 100 because it goes from 1 to 200 when we really want it to go from 0.01 to 2
         value = value/100;
         BufferedImage output = new BufferedImage(img.getWidth(), img.getHeight(), img.getType());
         for (int j = 0; j < img.getHeight(); ++j) {
@@ -95,7 +98,6 @@ public class ImageProcessor {
         {
             for (int i=0; i<img.getWidth(); ++i)
             {
-                // Calculate the gaussian blur
                 Color pixelColor = applyKernel(img, kernel, i, j);
                 output.setRGB(i, j, pixelColor.getRGB());                
             }
