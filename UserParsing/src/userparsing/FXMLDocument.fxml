@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="386.0" prefWidth="560.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="userparsing.FXMLDocumentController">
+    <children>
+        <Button fx:id="retrieveBtn" layoutX="237.0" layoutY="336.0" onAction="#handleButtonAction" text="Retrieve User" />
+        <Label fx:id="firstNameLabel" layoutX="176.0" layoutY="112.0" minHeight="16" minWidth="69" />
+      <Label fx:id="label" layoutX="112.0" layoutY="112.0" text="First name" />
+    </children>
+</AnchorPane>
