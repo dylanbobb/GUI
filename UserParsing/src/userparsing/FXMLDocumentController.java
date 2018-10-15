@@ -59,8 +59,7 @@ public class FXMLDocumentController implements Initializable {
         }
         catch(Exception e)
         {
-            System.out.println("Error");
+            return "Error";
         }
-        return "Error";
     }
 }
