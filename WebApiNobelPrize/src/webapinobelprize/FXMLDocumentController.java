@@ -24,8 +24,10 @@ import javafx.scene.control.Label;
 
 /**
  *
- * @author bergeron
+ * @author bergeron & Dylan
  */
+
+// TODO: ADD ERRORS IF THERE ARE NOT ENOUGH LAUREATES FOR THE SELECTED CATEGORY
 public class FXMLDocumentController implements Initializable {
     
     @FXML
