@@ -27,7 +27,6 @@ import javafx.scene.control.Label;
  * @author bergeron & Dylan
  */
 
-// TODO: ADD ERRORS IF THERE ARE NOT ENOUGH LAUREATES FOR THE SELECTED CATEGORY
 public class FXMLDocumentController implements Initializable {
     
     @FXML
@@ -50,10 +49,19 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        NobelPrizeLaureate[] lArray = getNobelPrizeLaureates(categoryCombo.getValue().toString(),Integer.parseInt(yearCombo.getValue()+""));
-        label1.setText(lArray[0].getFirstname() + " " + lArray[0].getSurname());
-        label2.setText(lArray[1].getFirstname() + " " + lArray[1].getSurname());
-        label3.setText(lArray[2].getFirstname() + " " + lArray[2].getSurname());
+        label1.setText("");
+        label2.setText("");
+        label3.setText("");
+        try
+        {
+            NobelPrizeLaureate[] lArray = getNobelPrizeLaureates(categoryCombo.getValue().toString(),Integer.parseInt(yearCombo.getValue()+""));
+            label1.setText(lArray[0].getFirstname() + " " + lArray[0].getSurname());
+            label2.setText(lArray[1].getFirstname() + " " + lArray[1].getSurname());
+            label3.setText(lArray[2].getFirstname() + " " + lArray[2].getSurname());
+        }
+        catch(Exception e)
+        {
+        }
     }
     
     @Override
@@ -113,9 +121,15 @@ public class FXMLDocumentController implements Initializable {
 
         for(int i=0;i<3;i++)
         {
-                String firstName = lArray.get(i).getAsJsonObject().get("firstname").getAsString();
-                String surname = lArray.get(i).getAsJsonObject().get("surname").getAsString();
-                nobelPrizeLaureate[i] = new NobelPrizeLaureate(firstName,surname,category,year);
+                try
+                {
+                    String firstName = lArray.get(i).getAsJsonObject().get("firstname").getAsString();
+                    String surname = lArray.get(i).getAsJsonObject().get("surname").getAsString();
+                    nobelPrizeLaureate[i] = new NobelPrizeLaureate(firstName,surname,category,year); 
+                }
+                catch(Exception e)
+                {
+                }
         }
 
         return nobelPrizeLaureate;
