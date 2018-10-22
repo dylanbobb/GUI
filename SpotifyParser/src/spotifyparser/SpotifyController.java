@@ -7,7 +7,6 @@ import com.google.gson.JsonParser;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -47,7 +46,6 @@ public class SpotifyController{
         String endpoint = "https://api.spotify.com/v1/artists/" + artistId + "/albums";
         String params = "market=CA&limit=50";
         
-        Writer writer = null;
         String jsonOutput = spotifyEndpointToJson(endpoint, params);
         JsonElement rootElement = new JsonParser().parse(jsonOutput);
         JsonObject rootObject = rootElement.getAsJsonObject();
@@ -65,27 +63,36 @@ public class SpotifyController{
     {
         ArrayList<String> albumIds = getAlbumIdsFromArtist(artistId);
         ArrayList<Album> albums = new ArrayList<>();
-        
-        // TODO - Retrieve all album data from the list of album ids for an artist
-        // 
-        // You can have a look at the Album class included
-        // 
-        // Recommended endpoint (id is the id of the album): 
-        //             https://api.spotify.com/v1/albums/{id}
-        //
-        // Arguments - You can filter for the CA market
+        String params = "market=CA";
 
         for(String albumId : albumIds)
         {
-            String artistName = "The Beatles";
-            String albumName = "Live at the Hollywood Bowl";
-            String coverURL = "https://i.scdn.co/image/94c04cbf2ea221d53c4ca2c93c8228c39945a180";
+            String endpoint = "https://api.spotify.com/v1/albums/" + albumId;
+            String jsonOutput = spotifyEndpointToJson(endpoint,params);
+            JsonElement rootElement = new JsonParser().parse(jsonOutput);
+            JsonObject rootObject = rootElement.getAsJsonObject();
+            
+            JsonArray artists = rootObject.get("artists").getAsJsonArray();
+            String artistName = artists.get(0).getAsJsonObject().get("name").getAsString();
+            
+            String albumName = rootObject.get("name").getAsString();
+            
+            JsonArray images = rootObject.get("images").getAsJsonArray();
+            String coverURL = images.get(0).getAsJsonObject().get("url").getAsString();
+            
+            JsonObject tracks = rootObject.get("tracks").getAsJsonObject();
+            JsonArray items = tracks.get("items").getAsJsonArray();
+            
             ArrayList<String> trackTitles = new ArrayList<>();
             ArrayList<Integer> trackLengths = new ArrayList<>();
-
-            trackTitles.add("Song 1");
-            trackLengths.add(218);
             
+            for(JsonElement x : items)
+            {
+                trackTitles.add(x.getAsJsonObject().get("name").getAsString());
+                trackLengths.add(x.getAsJsonObject().get("duration_ms").getAsInt());
+            }
+            
+
             albums.add(new Album(artistName, albumName, coverURL, trackTitles, trackLengths));                
         }
         
