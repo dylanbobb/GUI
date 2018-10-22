@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spotifyparser.FXMLSpotifyApiController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="spotifyparser.FXMLSpotifyApiController">
+   <children>
+      <Pane prefHeight="81.0" prefWidth="606.0">
+         <children>
+            <Label layoutY="6.0" text="hi" />
+            <Label layoutY="23.0" text="hi" />
+         </children>
+      </Pane>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Play" />
+      <ImageView fitHeight="224.0" fitWidth="200.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
+      <TableView layoutX="201.0" layoutY="106.0" prefHeight="200.0" prefWidth="406.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="#" />
+          <TableColumn prefWidth="310.0" text="Title" />
+        </columns>
+      </TableView>
+      <TextField layoutX="233.0" layoutY="81.0" prefHeight="25.0" prefWidth="344.0" text="Enter Artist Name..." />
+      <Button layoutX="201.0" layoutY="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="32.0" text="&lt;" />
+      <Button layoutX="577.0" layoutY="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="32.0" text="&gt;" />
+      <Label layoutX="540.0" layoutY="365.0" prefHeight="17.0" prefWidth="55.0" text="Label" />
+      <Slider layoutX="66.0" layoutY="367.0" prefHeight="14.0" prefWidth="474.0" />
+   </children>
 </AnchorPane>
