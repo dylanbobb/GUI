@@ -15,8 +15,8 @@ import java.util.Base64;
 
 
 public class SpotifyController{
-    final static private String SPOTIFY_CLIENT_ID     = "";
-    final static private String SPOTIFY_CLIENT_SECRET = "";
+    final static private String SPOTIFY_CLIENT_ID     = "8cae65457a824d39887557c83fb5d1f5";
+    final static private String SPOTIFY_CLIENT_SECRET = "e71a4dc5012a4f2a9fc8889bb7f5932e";
     
     public static String getArtistId(String artistNameQuery)
     {
