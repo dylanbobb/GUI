@@ -3,29 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spotifyparser;
+package spotifyproject;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
- * FXML Controller class
  *
  * @author cstuser
  */
-public class FXMLSpotifyApiController implements Initializable {
-
-
-    
-    
-    
-    
-    
+public class FXMLDocumentController implements Initializable {  
+    @FXML
+    private void play(ActionEvent event)
+    {
+        System.out.println(SpotifyController.getAlbumDataFromArtist("2ye2Wgw4gimLv2eAKyk1NB"));
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }     
 }

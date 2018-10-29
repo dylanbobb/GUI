@@ -32,3 +32,6 @@ hs_err_pid*
 /WebApiNobelPrize/build/
 /SpotifyParser/nbproject/private/
 /SpotifyParser/build/
+/SpotifyProject/nbproject/private/
+/SpotifyProject/dist/
+/SpotifyProject/build/
